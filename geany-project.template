@@ -1,0 +1,5 @@
+[project]
+name={{ item.1 }}
+base_path={{ ansible_env.HOME }}
+description=Default project for workspace {{ item.0 + 1 }} - {{ item.1 | upper }}
+
