@@ -1,0 +1,80 @@
+- hosts: localhost
+  connection: local
+  become_user: root
+  become_method: sudo
+
+  tasks:
+
+  - name: Set up $HOME directory structure 
+    file:
+      path: '~/{{ item }}'
+      state: directory
+    with_items:
+      - dev
+      - tmp
+      - .local/share/gnome-shell/extensions
+
+  - name: Set up directories for auto-opening Geany projects
+    file:
+      name: "{{ item }}"
+      state: directory
+    with_items:
+      - ~/.local/etc/geany.projects
+      - ~/.local/var/run/geany.sockets
+  - name: Create a Geany project for each workspace
+    template:
+      src: templates/geany-project.template
+      dest: ~/.local/etc/geany.projects/auto-{{ item.0 }}.geany
+      force: no
+    with_indexed_items: &workspace-names
+      - com
+      - www
+      - rht
+      - mpt
+      - pvc
+      - py3
+      - cpy
+      - pyl
+      - abc
+      - xyz
+      - prz
+      - fun
+
+  - name: Set workspace names
+    set_fact:
+      workspace_names: *workspace-names
+  - name: Debug workspace names
+    dconf:
+      key: /org/gnome/desktop/wm/preferences/workspace-names
+      state: present
+      value: |
+        [{% for wn in workspace_names %}'{{ wn }}'{% if not loop.last %},{% endif %}{% endfor %}]
+
+  - name: Clone my GitHub repos
+    shell: |
+      # Clone anonymously
+      cd ~/dev
+      git clone https://github.com/encukou/{{ item }}
+      cd {{ item }}
+      # Set URL to SSH
+      git remote set-url origin git@github.com:encukou/{{ item }}.git
+    args:
+      creates: '~/dev/{{ item }}'
+    with_items:
+      - gnome-shell-frippery
+      - bin
+
+  - name: Create symlinks in $HOME
+    file:
+      state: link
+      src: ~/{{ item.value }}
+      dest: ~/{{ item.key }}
+    with_dict:
+      bin: dev/bin
+      .local/share/gnome-shell/extensions/Bottom_Panel@rmy.pobox.com: dev/gnome-shell-frippery/extensions/Bottom_Panel@rmy.pobox.com
+
+  - name: Source bashrc-extra at end of .bashrc
+    lineinfile:
+      path: '~/.bashrc'
+      line: ". ~/bin/bashrc-extra"
+
