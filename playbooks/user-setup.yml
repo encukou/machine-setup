@@ -12,6 +12,7 @@
     with_items:
       - dev
       - tmp
+      - notes
       - .local/share/gnome-shell/extensions
 
   - name: Set up directories for auto-opening Geany projects
