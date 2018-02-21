@@ -44,6 +44,8 @@
       - neovim
       - gedit
       - geany
+      - kate
+      - konsole
       - firefox
       - chromium
       - gnome-terminal
@@ -64,16 +66,26 @@
       - thunderbird
       - audacity
       - /usr/bin/lualatex
-      
+
+      - gnome-shell-extension-system-monitor-applet
+      - /usr/bin/gnome-screensaver-command
+
       - esptool
       - ampy
       - picocom
-      
+
+      - gcc
+      - ccache
+
+      - libtidy-devel
+
       # tools for further configuration
       - python3dist(psutil)  # for dconf
       - python3dist(click)
       - /usr/bin/unzip
       - /usr/bin/wget
+
+      - fedora-packager
 
   - name: Install Firefox extensions (system-wide)
     set_fact:

@@ -14,6 +14,11 @@
       - tmp
       - notes
       - .local/share/gnome-shell/extensions
+      - software
+      - downloads
+
+      - fedpkg
+      - rhpkg
 
   - name: Set up directories for auto-opening Geany projects
     file:
