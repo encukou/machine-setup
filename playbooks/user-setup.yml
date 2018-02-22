@@ -69,6 +69,7 @@
     with_items:
       - gnome-shell-frippery
       - bin
+      - dotfiles
 
   - name: Create symlinks in $HOME
     file:
@@ -78,6 +79,11 @@
     with_dict:
       bin: dev/bin
       .local/share/gnome-shell/extensions/Bottom_Panel@rmy.pobox.com: dev/gnome-shell-frippery/extensions/Bottom_Panel@rmy.pobox.com
+
+  - name: Create symlinks for dotfiles
+    shell: |
+      cd ~/dev/dotfiles
+      ./setup.sh
 
   - name: Source bashrc-extra at end of .bashrc
     lineinfile:
