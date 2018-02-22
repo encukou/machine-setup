@@ -55,10 +55,10 @@
 
       - mediawriter
       - fuse-exfat
-      
+
       - mplayer
       - ffmpeg
-      
+
       - tox
       - python3-pytest
 
@@ -76,6 +76,7 @@
 
       - gcc
       - ccache
+      - /usr/bin/g++
 
       - libtidy-devel
 
