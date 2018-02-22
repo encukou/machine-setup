@@ -18,9 +18,13 @@ Manual steps:
       $ . __venv__/bin/activate
       (venv)$ python clone-all.py 
 
-- Generate SSH key (interactive):
+- Generate & set up keys (interactive):
 
       $ ssh-keygen
+
+      $ gpg --gen-key
+      $ gpg --list-keys
+      $ git config --file $HOME/.config/git/config user.signingkey <KEY - e.g. 9E172F37>
 
 - Register SSH keys:
 
