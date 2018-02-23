@@ -14,25 +14,16 @@
       - tmp
       - notes
       - .local/share/gnome-shell/extensions
+      - .fonts
       - software
       - downloads
 
       - fedpkg
       - rhpkg
 
-  - name: Set up directories for auto-opening Geany projects
-    file:
-      name: "{{ item }}"
-      state: directory
-    with_items:
-      - ~/.local/etc/geany.projects
-      - ~/.local/var/run/geany.sockets
-  - name: Create a Geany project for each workspace
-    template:
-      src: templates/geany-project.template
-      dest: ~/.local/etc/geany.projects/auto-{{ item.0 }}.geany
-      force: no
-    with_indexed_items: &workspace-names
+  - name: Set workspace names
+    set_fact:
+      workspace_names:
       - com
       - www
       - rht
@@ -45,10 +36,6 @@
       - xyz
       - prz
       - fun
-
-  - name: Set workspace names
-    set_fact:
-      workspace_names: *workspace-names
   - name: Debug workspace names
     dconf:
       key: /org/gnome/desktop/wm/preferences/workspace-names
@@ -79,6 +66,17 @@
     with_dict:
       bin: dev/bin
       .local/share/gnome-shell/extensions/Bottom_Panel@rmy.pobox.com: dev/gnome-shell-frippery/extensions/Bottom_Panel@rmy.pobox.com
+
+  - name: Create symlinks in $HOME to things that might not yet exist
+    file:
+      state: link
+      src: ~/{{ item.value }}
+      dest: ~/{{ item.key }}
+      force: true
+    with_dict:
+      .fonts/ofl: dev/fonts/ofl/
+      .fonts/ufl: dev/fonts/ufl/
+      .fonts/apache: dev/fonts/apache/
 
   - name: Create symlinks for dotfiles
     shell: |
