@@ -41,17 +41,26 @@
       - nano
       - exa
       - htop
+      - ripgrep
+
       - neovim
       - gedit
       - geany
       - kate
+
       - konsole
+      - gnome-terminal
+
       - firefox
       - chromium
-      - gnome-terminal
+
       - sqlitebrowser
       - filelight
       - keepassx
+
+      - gimp
+      - inkscape
+      - krita
 
       - mediawriter
       - fuse-exfat
@@ -76,6 +85,7 @@
 
       - gcc
       - ccache
+      - valgrind
       - /usr/bin/g++
 
       - libtidy-devel
