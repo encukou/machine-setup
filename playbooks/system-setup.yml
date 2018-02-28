@@ -42,6 +42,7 @@
       - exa
       - htop
       - ripgrep
+      - colordiff
 
       - neovim
       - gedit
