@@ -13,9 +13,12 @@ Manual steps:
 
 - Clone all my Git repos
 
+      - put a GitHub token in token.txt
+
       $ cd dev/machine-setup/clone-all-github/
-      $ python3 -v venv __venv__
+      $ python3 -m venv __venv__
       $ . __venv__/bin/activate
+      (venv)$ python -m pip install -r requirements.txt
       (venv)$ python clone-all.py 
 
 - Generate & set up keys (interactive):
