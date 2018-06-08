@@ -37,6 +37,7 @@
       - python3
       - git
       - gitk
+      - git-gui
       - tmux
       - nano
       - exa
@@ -54,6 +55,7 @@
 
       - firefox
       - chromium
+      - /usr/bin/http
 
       - sqlitebrowser
       - filelight
@@ -71,11 +73,18 @@
 
       - tox
       - python3-pytest
+      - python3-twine
 
       - quassel-client
       - thunderbird
       - audacity
+
+      - /usr/bin/pdfjam
       - /usr/bin/lualatex
+      - /usr/bin/pdflatex
+      - texlive-cm
+      - texlive-cm-unicode
+      - texlive-cs
 
       - gnome-shell-extension-system-monitor-applet
       - /usr/bin/gnome-screensaver-command
