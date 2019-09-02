@@ -36,7 +36,10 @@ Manual steps:
 
 - Migrate KeepassX file
 - Migrate banking cert
-- Migrate Gnome settings (WIP)
+- Apply Gnome settings (adjust to current taste):
+
+      $ ./gnome-settings.sh
+
 - Migrate Firefox settings (TBD)
 
 - Run Fedora packager setup:
