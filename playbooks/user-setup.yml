@@ -15,7 +15,6 @@
       - notes
       - .local/share/gnome-shell/extensions
       - .fonts
-      - software
       - downloads
 
       - fedpkg
