@@ -1,7 +1,6 @@
 - hosts: localhost
   connection: local
   become_user: root
-  become_method: sudo
 
   tasks:
 

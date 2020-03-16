@@ -8,8 +8,7 @@ Manual steps:
 
 - Run ansible:
 
-      $ sudo echo
-      $ ansible-playbook-3 ~/dev/machine-setup/playbook.yml
+      $ ansible-playbook -K ~/dev/machine-setup/playbook.yml
 
 - Clone all my Git repos
 
