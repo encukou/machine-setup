@@ -30,9 +30,8 @@
   - name: Install useful software
     become: yes
     dnf:
-      name: '{{ item }}'
       state: latest
-    with_items:
+      name:
       - python3
       - git
       - gitk
@@ -54,7 +53,7 @@
 
       - firefox
       - chromium
-      - /usr/bin/http
+      - httpie  # /usr/bin/http
 
       - sqlitebrowser
       - filelight
@@ -78,32 +77,35 @@
       - thunderbird
       - audacity
 
-      - /usr/bin/pdfjam
-      - /usr/bin/lualatex
-      - /usr/bin/pdflatex
+      - evince
+      - texlive-pdfjam  # /usr/bin/pdfjam
+      - texlive-latex  # /usr/bin/lualatex
+      - texlive-latex  # /usr/bin/pdflatex
       - texlive-cm
       - texlive-cm-unicode
       - texlive-cs
 
       - gnome-shell-extension-system-monitor-applet
-      - /usr/bin/gnome-screensaver-command
+      - gnome-screensaver  # /usr/bin/gnome-screensaver-command
 
       - esptool
       - ampy
       - picocom
 
+      - openscad
+
       - gcc
       - ccache
       - valgrind
-      - /usr/bin/g++
+      - gcc-c++  # /usr/bin/g++
 
       - libtidy-devel
 
       # tools for further configuration
       - python3dist(psutil)  # for dconf
       - python3dist(click)
-      - /usr/bin/unzip
-      - /usr/bin/wget
+      - unzip  # /usr/bin/unzip
+      - wget  # /usr/bin/wget
 
       - fedora-packager
 
