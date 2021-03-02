@@ -112,24 +112,29 @@
   - name: Install Firefox extensions (fact)
     set_fact:
       ff_dir: /usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/
-  - name: Install Firefox extensions
-    become: yes
-    shell: |
-      cd /usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/
-      mkdir {{ item.name }}
-      cd {{ item.name }}
-      wget -O __extension.xpi {{ item.url }}
-      unzip __extension.xpi
-      rm __extension.xpi
-    args:
-      creates: '/usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}//{{ item.name }}'
-    with_items:
-       - label: uMatrix
-         name: uMatrix@raymondhill.net
-         url: https://addons.mozilla.org/firefox/downloads/file/3396815/umatrix-1.4.0-an+fx.xpi
-       - label: Tree Style Tab
-         name: treestyletab@piro.sakura.ne.jp
-         url: https://addons.mozilla.org/firefox/downloads/file/3524776/tree_style_tab_-3.4.6-fx.xpi
-    loop_control:
-      label: "{{ item.label }}"
+#  - name: Install Firefox extensions
+#    become: yes
+#    shell: |
+#      cd /usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/
+#      mkdir {{ item.name }}
+#      cd {{ item.name }}
+#      wget -O __extension.xpi {{ item.url }}
+#      unzip __extension.xpi
+#      rm __extension.xpi
+#    args:
+#      creates: '/usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}//{{ item.name }}'
+#    with_items:
+#       - label: Multi-Account Containers
+#         name: multi-account-containers
+#         url: https://addons.mozilla.org/firefox/downloads/file/3713375/firefox_multi_account_containers-7.3.0-fx.xpi
+#       - label: uMatrix
+#         name: uMatrix@raymondhill.net
+#         url: https://addons.mozilla.org/firefox/downloads/file/3396815/umatrix-1.4.0-an+fx.xpi
+#       - label: Tree Style Tab
+#         name: treestyletab@piro.sakura.ne.jp
+#         url: https://addons.mozilla.org/firefox/downloads/file/3734736/tree_style_tab_-3.7.3-fx.xpi
+#         # https://addons.mozilla.org/firefox/downloads/file/3638038/tree_style_tab_-3.5.27-fx.xpi?src=dp-btn-primary
+#         # https://addons.mozilla.org/firefox/downloads/file/3524776/tree_style_tab_-3.4.6-fx.xpi
+#    loop_control:
+#      label: "{{ item.label }}"
 
