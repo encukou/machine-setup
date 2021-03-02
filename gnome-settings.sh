@@ -42,7 +42,16 @@ dconf write /com/gexperts/Tilix/profiles/76f7be02-983c-4140-b1fa-d1aa2ae14ac7/us
 dconf write /com/gexperts/Tilix/profiles/76f7be02-983c-4140-b1fa-d1aa2ae14ac7/use-theme-colors "false"
 dconf write /com/gexperts/Tilix/profiles/76f7be02-983c-4140-b1fa-d1aa2ae14ac7/palette "['#073642', '#DC322F', '#859900', '#B58900', '#268BD2', '#D33682', '#2AA198', '#EEE8D5', '#002B36', '#CB4B16', '#586E75', '#657B83', '#839496', '#6C71C4', '#93A1A1', '#FDF6E3']"
 
-dconf write /com/gexperts/Tilix/profiles/list "['2b7c4080-0ddd-46c5-8f23-563fd3ba789d', '76f7be02-983c-4140-b1fa-d1aa2ae14ac7']"
+dconf write /com/gexperts/Tilix/profiles/d9ee0edf-7891-4696-9c75-2a1fc33a5466/visible-name "'wine'"
+dconf write /com/gexperts/Tilix/profiles/d9ee0edf-7891-4696-9c75-2a1fc33a5466/use-theme-colors "false"
+dconf write /com/gexperts/Tilix/profiles/d9ee0edf-7891-4696-9c75-2a1fc33a5466/use-system-font "false"
+dconf write /com/gexperts/Tilix/profiles/d9ee0edf-7891-4696-9c75-2a1fc33a5466/palette "['#000000', '#AA0000', '#00AA00', '#AA5400', '#0000AA', '#AA00AA', '#00AAAA', '#AAAAAA', '#545454', '#FF5454', '#54FF54', '#FFFF54', '#5454FF', '#FF54FF', '#54FFFF', '#FFFFFF']"
+dconf write /com/gexperts/Tilix/profiles/d9ee0edf-7891-4696-9c75-2a1fc33a5466/font "'DOSEGA Medium 12'"
+dconf write /com/gexperts/Tilix/profiles/d9ee0edf-7891-4696-9c75-2a1fc33a5466/custom-command "'windows'"
+dconf write /com/gexperts/Tilix/profiles/d9ee0edf-7891-4696-9c75-2a1fc33a5466/use-custom-command "true"
+
+
+dconf write /com/gexperts/Tilix/profiles/list "['2b7c4080-0ddd-46c5-8f23-563fd3ba789d', '76f7be02-983c-4140-b1fa-d1aa2ae14ac7', 'd9ee0edf-7891-4696-9c75-2a1fc33a5466']"
 
 dconf write /org/gnome/nautilus/list-view/default-visible-columns "['name', 'size', 'type', 'owner', 'group', 'permissions', 'date_modified_with_time', 'starred']"
 dconf write /org/gnome/nautilus/list-view/default-zoom-level "'small'"
