@@ -9,6 +9,7 @@ A token for read-only public access should be in token.txt.
 
 from pathlib import Path
 import subprocess
+import time
 
 from github import Github
 
@@ -55,4 +56,4 @@ for repo in gh.get_user(USER).get_repos():
             cwd=BASEDIR)
         run(['git', 'remote', 'set-url', 'origin', repo.ssh_url],
             cwd=clonedir)
-
+    time.sleep(5)
