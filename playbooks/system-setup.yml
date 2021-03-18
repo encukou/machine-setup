@@ -41,13 +41,16 @@
       - exa
       - htop
       - ripgrep
-      - colordiff
+      - meld
+      - entr
+      - pipenv
 
       - neovim
       - gedit
       - geany
       - kate
 
+      - tilix
       - konsole
       - gnome-terminal
 
@@ -62,6 +65,10 @@
       - gimp
       - inkscape
       - krita
+      - ImageMagick
+
+      - feh
+      - gwenview
 
       - mediawriter
       - fuse-exfat
@@ -71,7 +78,7 @@
 
       - tox
       - python3-pytest
-      - python3-twine
+      - twine
 
       - quassel-client
       - thunderbird
@@ -86,7 +93,7 @@
       - texlive-cs
 
       - gnome-shell-extension-system-monitor-applet
-      - gnome-screensaver  # /usr/bin/gnome-screensaver-command
+      #- gnome-screensaver  # /usr/bin/gnome-screensaver-command
 
       - esptool
       - ampy
@@ -108,6 +115,9 @@
       - wget  # /usr/bin/wget
 
       - fedora-packager
+
+      - gnome-tweaks
+      - gnome-extensions-app
 
   - name: Install Firefox extensions (fact)
     set_fact:
