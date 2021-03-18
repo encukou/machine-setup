@@ -50,4 +50,8 @@ Manual steps:
 - Set up `devpi`:
 
       python3 -m venv ~/dev/devpi/__venv__
-      devpi --init
+      cd ~/dev/devpi/server/ && ~/dev/devpi/__venv__/bin/python setup.py develop
+      ~/dev/devpi/__venv__/bin/devpi-init
+      mkdir -p ~/.config/pip/
+      echo [global] >> ~/.config/pip/pip.conf
+      echo 'index-url = http://127.0.0.1:3141/root/pypi/+simple' >> ~/.config/pip/pip.conf
