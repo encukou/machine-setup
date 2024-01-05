@@ -1,6 +1,9 @@
 # Machine setup
 
-Manual steps:
+These are mostly personal notes, so I don't forget what to do when I need to
+set up a new computer. If you're interested in something, feel free to ask.
+
+Steps:
 
 - Install Fedora
 
