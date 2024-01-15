@@ -1,7 +1,5 @@
 - hosts: localhost
   connection: local
-  become_user: root
-  become_method: sudo
 
   tasks:
 
@@ -19,6 +17,8 @@
 
       - fedpkg
       - rhpkg
+
+      - .config/gdb/
 
   - name: Set workspace names
     set_fact:
@@ -86,4 +86,13 @@
     lineinfile:
       path: '~/.bashrc'
       line: ". ~/bin/bashrc-extra"
+
+  - name: Configure gdb
+    with_items:
+      - "set history save on"
+      - "set debuginfod enabled on"
+    lineinfile:
+      create: true
+      path: '~/.config/gdb/gdbinit'
+      line: "{{ item }}"
 

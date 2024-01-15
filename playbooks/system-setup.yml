@@ -17,7 +17,7 @@
   - name: Add myself to groups
     become: yes
     user:
-      name: pviktori
+      name: encukou
       groups: *my-user-groups
 
   - name: Set up RPM fusion
@@ -37,13 +37,15 @@
       - gitk
       - git-gui
       - tmux
+      - /usr/bin/mosh
       - nano
-      - exa
+      #- exa
       - htop
       - ripgrep
       - meld
       - entr
       - pipenv
+      - /usr/bin/cargo
 
       - neovim
       - gedit
@@ -56,11 +58,12 @@
 
       - firefox
       - chromium
-      - httpie  # /usr/bin/http
+      - /usr/bin/http
 
       - sqlitebrowser
       - filelight
-      - keepassx
+      - keepassxc
+      - /usr/bin/qrencode
 
       - gimp
       - inkscape
@@ -74,7 +77,7 @@
       - fuse-exfat
 
       - mplayer
-      - ffmpeg
+      #- ffmpeg
 
       - tox
       - python3-pytest
@@ -85,9 +88,9 @@
       - audacity
 
       - evince
-      - texlive-pdfjam  # /usr/bin/pdfjam
-      - texlive-latex  # /usr/bin/lualatex
-      - texlive-latex  # /usr/bin/pdflatex
+      - /usr/bin/pdfjam
+      - /usr/bin/lualatex
+      - /usr/bin/pdflatex
       - texlive-cm
       - texlive-cm-unicode
       - texlive-cs
@@ -104,20 +107,25 @@
       - gcc
       - ccache
       - valgrind
-      - gcc-c++  # /usr/bin/g++
+      - /usr/bin/g++
+      - /usr/bin/blurb
+      - /usr/bin/sphinx-build
+      - python-docs-theme
 
       - libtidy-devel
 
       # tools for further configuration
       - python3dist(psutil)  # for dconf
       - python3dist(click)
-      - unzip  # /usr/bin/unzip
-      - wget  # /usr/bin/wget
+      - /usr/bin/unzip
+      - /usr/bin/wget
 
       - fedora-packager
 
       - gnome-tweaks
       - gnome-extensions-app
+      
+      - gparted
 
   - name: Install Firefox extensions (fact)
     set_fact:

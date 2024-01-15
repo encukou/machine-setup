@@ -52,7 +52,7 @@ for repo in gh.get_user(USER).get_repos():
         run(['git', 'remote', 'set-url', 'encukou', repo.ssh_url],
             cwd=clonedir)
     else:
-        run(['git', 'clone', repo.clone_url, repo.name],
+        run(['git', 'clone', '--no-checkout', repo.clone_url, repo.name],
             cwd=BASEDIR)
         run(['git', 'remote', 'set-url', 'origin', repo.ssh_url],
             cwd=clonedir)

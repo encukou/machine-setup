@@ -1,8 +1,15 @@
 #! /bin/bash -ex
 
+# Set up GNOME (and stuff) to my liking.
+# How to add things here:
+# - Run `dconf watch /`
+# - Change a setting in the GUI, and coppy its name here!
+
+gsettings set org.gnome.mutter.keybindings switch-monitor "['XF86Display']"
+
 dconf write /org/gnome/mutter/dynamic-workspaces "false"
 dconf write /org/gnome/desktop/wm/preferences/num-workspaces "12"
-dconf write /org/gnome/desktop/wm/preferences/workspace-names "['com', 'www', 'rht', 'mpt', 'pvc', 'py3', 'cpy', 'pyl', 'abc', 'xyz', 'prz', 'fun']"
+dconf write /org/gnome/desktop/wm/preferences/workspace-names "['com', 'www', 'ofl', 'pvc',   'cpy', 'dir', 'pep', 'rvi',   'abc', 'xyz', 'prz', 'fun']"
 
 for n in $(seq 1 12); do
     dconf write /org/gnome/desktop/wm/keybindings/switch-to-workspace-$n "['<Super>F$n']"
@@ -16,12 +23,28 @@ dconf write /org/gnome/desktop/wm/keybindings/panel-run-dialog "['<Super>z']"
 dconf write /org/gnome/desktop/wm/keybindings/toggle-fullscreen "['<Super>f']"
 dconf write /org/gnome/desktop/wm/preferences/button-layout "'appmenu:close'"
 
-dconf write /org/gnome/desktop/input-sources/xkb-options "['compose:menu', 'caps:menu', 'numpad:mac']"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding "'<Super>Return'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command "'tilix'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name "'tilix'"
+
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/binding "'<Super>x'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command "'open-kate-for-desktop'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name "'open-kate-for-desktop'"
+
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
+
+dconf write /org/gnome/desktop/input-sources/xkb-options "['compose:prsc', 'caps:menu', 'numpad:mac']"
 dconf write /org/gnome/desktop/input-sources/sources "[('xkb', 'us'), ('xkb', 'cz+qwerty')]"
 dconf write /org/gnome/mutter/overlay-key "'Menu'"
 
 dconf write /org/gnome/desktop/interface/clock-show-seconds "true"
 dconf write /org/gnome/desktop/interface/clock-show-weekday "true"
+
+dconf write /org/gnome/desktop/interface/enable-hot-corners "false"
+dconf write /org/gnome/mutter/workspaces-only-on-primary "false"
+dconf write /org/gnome/shell/app-switcher/current-workspace-only "true"
+dconf write /org/gnome/desktop/interface/overlay-scrolling "false"
+dconf write /org/gnome/desktop/sound/allow-volume-above-100-percent "true"
 
 dconf write /org/gnome/shell/enabled-extensions "['Bottom_Panel@rmy.pobox.com', 'system-monitor@paradoxxx.zero.gmail.com']"
 
@@ -57,3 +80,15 @@ dconf write /org/gnome/nautilus/list-view/default-visible-columns "['name', 'siz
 dconf write /org/gnome/nautilus/list-view/default-zoom-level "'small'"
 dconf write /org/gnome/nautilus/list-view/use-tree-view "true"
 dconf write /org/gnome/nautilus/preferences/default-folder-viewer "'list-view'"
+
+dconf write /org/gnome/desktop/session/idle-delay "uint32 0"
+dconf write /org/gnome/settings-daemon/plugins/power/sleep-inactive-ac-type "'nothing'"
+
+dconf write /org/gnome/desktop/notifications/application/mozilla-thunderbird/show-banners false
+dconf write /org/gnome/desktop/notifications/application/mozilla-thunderbird/enable-sound-alerts false
+
+# Alt-tab switches *windows*, not applications
+dconf write /org/gnome/desktop/wm/keybindings/switch-applications "@as []"
+dconf write /org/gnome/desktop/wm/keybindings/switch-applications-backward "@as []"
+dconf write /org/gnome/desktop/wm/keybindings/switch-windows "['<Alt>Tab']"
+dconf write /org/gnome/desktop/wm/keybindings/switch-windows-backward "['<Shift><Alt>Tab']"
