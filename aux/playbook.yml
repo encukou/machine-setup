@@ -1,0 +1,17 @@
+- import_playbook: playbooks/setup-cpython-dev.yml
+
+- hosts: all
+  tasks:
+  - name: debug through ansible.env
+    debug: var=ansible_env.HOME
+  - name: See
+    shell: |
+        echo {{ ansible_env.HOME }}
+        echo {{ ansible_distribution }}
+        echo $PATH
+        echo
+        cat /etc/paths ||:
+    register: see
+  - name: debug output
+    debug:
+      var: see.stdout

@@ -1,0 +1,38 @@
+- hosts: all
+  tasks:
+  - name: Set up ~/dev
+    file:
+      path: '~/dev'
+      state: directory
+  - name: Clone my GitHub repos
+    shell: |
+      # Clone anonymously
+      cd ~/dev
+      git clone https://github.com/encukou/{{ item }}
+      cd {{ item }}
+    args:
+      creates: '~/dev/{{ item }}'
+    with_items:
+      - bin
+      - dotfiles
+  - name: Clone CPython
+    shell: |
+      # Clone anonymously
+      cd ~/dev
+      git clone https://github.com/python/cpython
+    args:
+      creates: '~/dev/cpython'
+
+  - name: Create symlinks in $HOME
+    file:
+      state: link
+      src: ~/{{ item.value }}
+      dest: ~/{{ item.key }}
+    with_dict:
+      bin: dev/bin
+
+  - name: Source bashrc-extra at end of .bashrc
+    lineinfile:
+      create: true
+      path: '~/.bashrc'
+      line: ". ~/bin/bashrc-extra"
