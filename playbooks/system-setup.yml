@@ -44,7 +44,7 @@
       - ripgrep
       - meld
       - entr
-      - pipenv
+      #- pipenv
       - /usr/bin/cargo
 
       - neovim
