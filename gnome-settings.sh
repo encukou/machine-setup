@@ -6,6 +6,7 @@
 # - Change a setting in the GUI, and coppy its name here!
 
 gsettings set org.gnome.mutter.keybindings switch-monitor "['XF86Display']"
+gsettings set com.gexperts.Tilix.Keybindings terminal-zoom-normal '<Ctrl>equal'
 
 dconf write /org/gnome/mutter/dynamic-workspaces "false"
 dconf write /org/gnome/desktop/wm/preferences/num-workspaces "12"
