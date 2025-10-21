@@ -41,7 +41,7 @@ for repo in gh.get_user(USER).get_repos():
     if repo.parent:
         print(repo.parent.ssh_url)
 
-        run(['git', 'clone', '--recursive', '--no-checkout', repo.parent.clone_url, repo.name],
+        run(['git', 'clone', '--no-checkout', '--recurse-submodules', repo.parent.clone_url, repo.name],
             cwd=BASEDIR)
         run(['git', 'remote', 'set-url', 'origin', repo.parent.ssh_url],
             cwd=clonedir)
@@ -52,7 +52,7 @@ for repo in gh.get_user(USER).get_repos():
         run(['git', 'remote', 'set-url', 'encukou', repo.ssh_url],
             cwd=clonedir)
     else:
-        run(['git', 'clone', '--recursive', '--no-checkout', repo.clone_url, repo.name],
+        run(['git', 'clone', '--no-checkout', '--recurse-submodules', repo.clone_url, repo.name],
             cwd=BASEDIR)
         run(['git', 'remote', 'set-url', 'origin', repo.ssh_url],
             cwd=clonedir)

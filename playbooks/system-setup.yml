@@ -39,7 +39,7 @@
       - tmux
       - /usr/bin/mosh
       - nano
-      #- exa
+      - eza
       - htop
       - ripgrep
       - meld
@@ -112,7 +112,7 @@
       - /usr/bin/sphinx-build
       - python-docs-theme
 
-      - libtidy-devel
+      - libtree-ldd
 
       # tools for further configuration
       - python3dist(psutil)  # for dconf
@@ -124,7 +124,7 @@
 
       - gnome-tweaks
       - gnome-extensions-app
-      
+
       - gparted
 
   - name: Install Firefox extensions (fact)
