@@ -32,7 +32,31 @@ dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/cus
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/command "'open-kate-for-desktop'"
 dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/name "'open-kate-for-desktop'"
 
-dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/binding "'<Shift><Control><Alt><Super>p'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/command "'tilix --window-style=disable-csd-hide-toolbar -e python'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/name "'Start python'"
+
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/binding "'<Super>c'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/command "'ff'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/name "'Firefox'"
+
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/binding "'<Super>v'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/command "'ged'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/name "'ged'"
+
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/binding "'<Control><Super>c'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/command "'ffsel'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/name "'ffsel'"
+
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/binding "'<Alt><Super>c'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/command "'ffsel --new-window'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/name "'ffsel --new-window'"
+
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/binding "'<Super>space'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/command "'switch-light-dark'"
+dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/name "'Switch light/dark'"
+
+#dconf write /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']"
 
 dconf write /org/gnome/desktop/input-sources/xkb-options "['compose:prsc', 'caps:menu', 'numpad:mac']"
 dconf write /org/gnome/desktop/input-sources/sources "[('xkb', 'us'), ('xkb', 'cz+qwerty')]"
